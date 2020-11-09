@@ -64,13 +64,11 @@ CREATE TABLE CAMAREIRA(
 
 CREATE TABLE CHEFE_DE_COZINHA(
 	id_chefe_cozinha INTEGER PRIMARY KEY,
-    area_atuacao VARCHAR(200),
     FOREIGN KEY(id_chefe_cozinha) REFERENCES COZINHEIRO(id_cozinheiro) ON DELETE CASCADE
 );
 
 CREATE TABLE AUXILIAR_DE_COZINHA(
 	id_aux_cozinha INTEGER PRIMARY KEY,
-    area_atuacao VARCHAR(200),
     FOREIGN KEY(id_aux_cozinha) REFERENCES COZINHEIRO(id_cozinheiro) ON DELETE CASCADE,
     id_chefe INTEGER,
     FOREIGN KEY(id_chefe) REFERENCES CHEFE_DE_COZINHA(id_chefe_cozinha)
