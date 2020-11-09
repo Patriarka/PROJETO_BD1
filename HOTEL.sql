@@ -29,7 +29,7 @@ CREATE TABLE FUNCIONARIO(
     nome VARCHAR(60),
     cpf CHAR(11),
     rg VARCHAR(20),
-    num_carteira_trabalho VARCHAR(20),
+    num_carteira_trabalho CHAR(11),
     salario decimal(10,2)
 );
 
