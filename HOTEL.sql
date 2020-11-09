@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS MANOBRISTA;
 DROP TABLE IF EXISTS FUNCIONARIO;
 
 CREATE TABLE FUNCIONARIO(
-	id_func INTEGER PRIMARY KEY,
+	id_func INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(60),
     cpf CHAR(11),
     rg VARCHAR(20),
     num_carteira_trabalho VARCHAR(20),
-    salario FLOAT
+    salario decimal(10,2)
 );
 
 CREATE TABLE MANOBRISTA(
@@ -42,7 +42,7 @@ CREATE TABLE GERENTE(
 	id_gerente INTEGER PRIMARY KEY,
     formacao VARCHAR(100),
     cursos VARCHAR(200),
-    comissao FLOAT,
+    comissao DECIMAL(10,2),
     FOREIGN KEY(id_gerente) REFERENCES FUNCIONARIO(id_func) ON DELETE CASCADE
 );
 
@@ -131,7 +131,7 @@ CREATE TABLE CNH(
 CREATE TABLE PRODUTOS(
 	descricao VARCHAR(100) PRIMARY KEY,
     categoria VARCHAR(100),
-    preco FLOAT
+    preco DECIMAL(10,2)
 );
 
 CREATE TABLE HOSPEDE(
@@ -165,10 +165,10 @@ CREATE TABLE MANOBRA_CARRO(
 );
 
 CREATE TABLE HOSPEDAGEM(
-	id_hosp INTEGER PRIMARY KEY,
+	id_hosp INTEGER PRIMARY KEY AUTO_INCREMENT,
     data DATE,
     status BOOLEAN,
-    valor FLOAT,
+    valor DECIMAL(10,2),
     id_atendente INTEGER,
     FOREIGN KEY(id_atendente) REFERENCES ATENDENTE(id_atendente)
 );
@@ -189,7 +189,7 @@ CREATE TABLE CATEGORIA(
 CREATE TABLE QUARTO_POSSUI_CATEGORIA(
 	cap_quarto INTEGER,
     tipo_cat VARCHAR(60),
-    preco FLOAT,
+    preco DECIMAL(10,2),
     id_hospedagem INTEGER,
     FOREIGN KEY(cap_quarto) REFERENCES QUARTO(capacidade),
     FOREIGN KEY(tipo_cat) REFERENCES CATEGORIA(tipo),
@@ -204,6 +204,3 @@ CREATE TABLE CAMAREIRA_LIMPA_QUARTO(
     FOREIGN KEY(capacidade) REFERENCES QUARTO(capacidade),
     PRIMARY KEY(id_camareira, capacidade)
 );
-
-
-
