@@ -100,7 +100,7 @@ CREATE TABLE ALIMENTO(
 CREATE TABLE ALIMENTO_TEM_FORNECEDOR(
 	cnpj_forn CHAR(14),
     nome_alim VARCHAR(60),
-    data_forn DATE,
+    data_fornec DATE,
     FOREIGN KEY(cnpj_forn) REFERENCES FORNECEDOR(cnpj), 
     FOREIGN KEY(nome_alim) REFERENCES ALIMENTO(nome),
     PRIMARY KEY(cnpj_forn, nome_alim)
