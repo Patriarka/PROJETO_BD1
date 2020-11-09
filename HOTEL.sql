@@ -70,7 +70,7 @@ CREATE TABLE CHEFE_DE_COZINHA(
 CREATE TABLE AUXILIAR_DE_COZINHA(
 	id_aux_cozinha INTEGER PRIMARY KEY,
     FOREIGN KEY(id_aux_cozinha) REFERENCES COZINHEIRO(id_cozinheiro) ON DELETE CASCADE,
-    id_chefe INTEGER,
+    id_chefe INTEGER NOT NULL,
     FOREIGN KEY(id_chefe) REFERENCES CHEFE_DE_COZINHA(id_chefe_cozinha)
 );
 
@@ -83,7 +83,7 @@ CREATE TABLE FORNECEDOR(
 
 CREATE TABLE CONTATO(
 	telefone CHAR(11) PRIMARY KEY,
-    cnpj_empresa CHAR(14),
+    cnpj_empresa CHAR(14) NOT NULL,
     FOREIGN KEY(cnpj_empresa) REFERENCES FORNECEDOR(cnpj),
     nome VARCHAR(60),
     email VARCHAR(100)
@@ -93,14 +93,14 @@ CREATE TABLE ALIMENTO(
 	nome VARCHAR(60) PRIMARY KEY,
     cat VARCHAR(60),
     qtde INTEGER,
-    id_comprador INTEGER,
+    id_comprador INTEGER NOT NULL,
     FOREIGN KEY(id_comprador) REFERENCES GERENTE(id_gerente)
 );
 
 CREATE TABLE ALIMENTO_TEM_FORNECEDOR(
 	cnpj_forn CHAR(14),
     nome_alim VARCHAR(60),
-    data_fornec DATE,
+    data_fornec DATE NOT NULL,
     FOREIGN KEY(cnpj_forn) REFERENCES FORNECEDOR(cnpj), 
     FOREIGN KEY(nome_alim) REFERENCES ALIMENTO(nome),
     PRIMARY KEY(cnpj_forn, nome_alim)
@@ -108,7 +108,7 @@ CREATE TABLE ALIMENTO_TEM_FORNECEDOR(
 
 CREATE TABLE CARDAPIO(
 	dia DATE PRIMARY KEY,
-    id_chefe_cozinha INTEGER,
+    id_chefe_cozinha INTEGER NOT NULL,
     FOREIGN KEY(id_chefe_cozinha) REFERENCES CHEFE_DE_COZINHA(id_chefe_cozinha)
 );
 
@@ -124,7 +124,7 @@ CREATE TABLE CNH(
 	cnh INTEGER PRIMARY KEY,
     nivel_cnh CHAR,
     tempo_cnh DATE,
-    id_manobrista INTEGER,
+    id_manobrista INTEGER NOT NULL,
     FOREIGN KEY(id_manobrista) REFERENCES MANOBRISTA(id_manobrista)
 );
 
@@ -152,7 +152,7 @@ CREATE TABLE CARRO(
 	placa CHAR(7) PRIMARY KEY,
     modelo VARCHAR(60),
     cor VARCHAR(60),
-    cpf_hosp CHAR(11),
+    cpf_hosp CHAR(11) NOT NULL,
     FOREIGN KEY(cpf_hosp) REFERENCES HOSPEDE(cpf)
 );
 
@@ -169,7 +169,7 @@ CREATE TABLE HOSPEDAGEM(
     data DATE,
     status BOOLEAN,
     valor DECIMAL(10,2),
-    id_atendente INTEGER,
+    id_atendente INTEGER NOT NULL,
     FOREIGN KEY(id_atendente) REFERENCES ATENDENTE(id_atendente)
 );
 
@@ -190,7 +190,7 @@ CREATE TABLE QUARTO_POSSUI_CATEGORIA(
 	cap_quarto INTEGER,
     tipo_cat VARCHAR(60),
     preco DECIMAL(10,2),
-    id_hospedagem INTEGER,
+    id_hospedagem INTEGER NOT NULL,
     FOREIGN KEY(cap_quarto) REFERENCES QUARTO(capacidade),
     FOREIGN KEY(tipo_cat) REFERENCES CATEGORIA(tipo),
     FOREIGN KEY(id_hospedagem) REFERENCES HOSPEDAGEM(id_hosp),
