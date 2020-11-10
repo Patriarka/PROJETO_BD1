@@ -8,6 +8,7 @@ INSERT INTO FORNECEDOR(cnpj, nome_empresa, razao_social, cidade) VALUES
 ('83880324000199', 'Multifrios', 'Multifrios Alimentos LTDA', 'Cianorte'), 
 ('41097062000140', 'Soya', 'Soya - Distribuidora de Produtos Alimenticios LTDA', 'Curitiba'), 
 ('95774597000138', 'daFruta', 'Dafruta Industria de Polpas LTDA', 'Belo Horizonte'), 
+('65001430000173', 'Dolly', 'DOLLY LOOS COMERCIO E REPRESENTACOES LTDA', 'Belo Horizonte'), 
 ('12680065000104', 'Elma Chips', 'PEPSICO DO BRASIL LTDA', 'Curitiba');
 
 INSERT INTO CONTATO(telefone, cnpj_empresa, nome, email) VALUES 
@@ -46,6 +47,19 @@ INSERT INTO CARRO(placa, modelo, cor, cpf_hosp) VALUES
 ('MWP0291', 'Fiat Palio', 'amarelo', '82250927162'), 
 ('KCO7641', 'Toyota Corolla', 'vermelho', '92272268692');
 
+INSERT INTO MANOBRA_CARRO() VALUES 
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+();
+
+
 INSERT INTO PRODUTOS(descricao, categoria, preco) VALUES 
 ('refrigerante coca-cola', 'bebidas', 5.99), 
 ('refrigerante guaraná', 'bebidas', 4.99), 
@@ -57,6 +71,18 @@ INSERT INTO PRODUTOS(descricao, categoria, preco) VALUES
 ('suco prat`s laranja 1L', 'bebidas', 9.99), 
 ('amendoim japonês 1kg', 'guloseimas', 11.99), 
 ('salgadinho cheetos quiejo 50g', 'guloseimas', 3.99);
+
+INSERT INTO HOSPEDE_CONSOME_PRODUTOS() VALUES 
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+();
 
 INSERT INTO FUNCIONARIO(nome, cpf, rg, num_carteira_trabalho, salario) VALUES 
 ('Ryan Diogo Vieira', '71510963308', '14.248.051-4', '59398503729', 1430.00), 
@@ -172,17 +198,17 @@ INSERT INTO CAMAREIRA(id_camareira) VALUES
 (?);
 
 INSERT INTO CARDAPIO(dia, id_chefe_cozinha) VALUES
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20), 
-('?', 20),  
-('?', 20);
+( 01/11/2020, 20 ), 
+( 02/11/2020, 20 ), 
+( 03/11/2020, 20 ), 
+( 04/11/2020, 20 ), 
+( 05/11/2020, 20 ), 
+( 06/11/2020, 20 ), 
+( 07/11/2020, 20 ), 
+( 08/11/2020, 20 ), 
+( 09/11/2020, 20 ), 
+( 10/11/2020, 20 ), 
+( 11/11/2020, 20 );
 
 INSERT INTO ALIMENTO(nome, cat, qtde, id_comprador) VALUES 
 ('refrigerante', 'bebidas', 24, 21), 
@@ -198,6 +224,33 @@ INSERT INTO ALIMENTO(nome, cat, qtde, id_comprador) VALUES
 ('Alface', 'verduras', 5, 21), 
 ('Pudim', 'sobremesa', 3, 21);
 
+INSERT INTO ALIMENTO_TEM_CARDAPIO(dia_cardap, nome_alim) VALUES 
+( 01/11/2020, 'refrigerante' ), 
+( 02/11/2020, 'refrigerante' ), 
+( 02/11/2020, 'Arroz' ), 
+( 02/11/2020, 'Linguiça' ), 
+( 02/11/2020, 'Macarrão' ), 
+( 03/11/2020, 'Alface' ), 
+( 03/11/2020, 'Carne de Frango' ), 
+( 03/11/2020, 'Arroz' ), 
+( 04/11/2020, 'Arroz' ), 
+( 04/11/2020, 'refrigerante' ), 
+( 04/11/2020, 'Macarrão' );
+
+INSERT INTO ALIMENTO_TEM_FORNECEDOR(cnpj_forn , nome_alim , data_fornec) VALUES 
+('65001430000173', 'refrigerante', 01/11/2020),
+('07977050000172', 'leite', 09/04/2020),
+('77444740000141', 'Macarrão', 11/06/2020),
+('49109714000121', 'Arroz', 19/08/2020),
+('76741963000108', 'Linguiça', 16/09/2020),
+('76741963000108', 'Carne de Frango', 02/08/2020),
+('95774597000138', 'Laranja', 01/08/2020),
+('41097062000140', 'Pão francês', 08/09/2020),
+('76741963000108', 'Mussarela', 22/10/2020),
+('49109714000121', 'Manteiga', 02/11/2020),
+('41097062000140', 'Alface', 19/09/2020),
+('95774597000138', 'Pudim', 07/10/2020);
+
 INSERT INTO QUARTO(capacidade, andar, status, num_quarto) VALUES
 ('1', '1', 'ocupado', 1), 
 ('1', '1', 'desocupado', 2), 
@@ -209,6 +262,19 @@ INSERT INTO QUARTO(capacidade, andar, status, num_quarto) VALUES
 ('2', '3', 'desocupado', 8), 
 ('3', '3', 'ocupado', 9), 
 ('3', '3', 'ocupado', 10);
+
+INSERT INTO CAMAREIRA_LIMPA_QUARTO() VALUES 
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+(),
+();
+
 
 INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES 
 ('standard solteiro', 'quarto simples para solteiro com serviços básicos', 1), 
@@ -247,3 +313,5 @@ INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente) VALUES
 (09/11/2020, 'acontecendo', 199.99, 29), 
 (09/11/2020, 'acontecendo', 49.99, 30), 
 (09/11/2020, 'acontecendo', 99.99, 31);
+
+
