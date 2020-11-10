@@ -121,7 +121,7 @@ CREATE TABLE ALIMENTO_TEM_CARDAPIO(
 );
 
 CREATE TABLE CNH(
-	cnh INTEGER PRIMARY KEY,
+	cnh CHAR(11) PRIMARY KEY,
     nivel_cnh CHAR,
     tempo_cnh DATE,
     id_manobrista INTEGER NOT NULL,
