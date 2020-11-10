@@ -1,3 +1,4 @@
+
 INSERT INTO FORNECEDOR(cnpj, nome_empresa, razao_social, cidade) VALUES 
 ('77444740000141', 'LIZA', 'Liza Alimentos Ltda', 'São Paulo'), 
 ('07977050000172', 'Heinz', 'Heinz Alimentos Ltda', 'São Paulo'), 
@@ -47,19 +48,6 @@ INSERT INTO CARRO(placa, modelo, cor, cpf_hosp) VALUES
 ('MWP0291', 'Fiat Palio', 'amarelo', '82250927162'), 
 ('KCO7641', 'Toyota Corolla', 'vermelho', '92272268692');
 
-INSERT INTO MANOBRA_CARRO() VALUES 
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-();
-
-
 INSERT INTO PRODUTOS(descricao, categoria, preco) VALUES 
 ('refrigerante coca-cola', 'bebidas', 5.99), 
 ('refrigerante guaraná', 'bebidas', 4.99), 
@@ -72,17 +60,28 @@ INSERT INTO PRODUTOS(descricao, categoria, preco) VALUES
 ('amendoim japonês 1kg', 'guloseimas', 11.99), 
 ('salgadinho cheetos quiejo 50g', 'guloseimas', 3.99);
 
-INSERT INTO HOSPEDE_CONSOME_PRODUTOS() VALUES 
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-();
+('39737253060', 'Rita Fátima Mendes', '28.440.944-3'),
+('57628986285', 'Louise Manuela Agatha Viana', '32.256.025-1'), 
+('86279139352', 'Sandra Márcia Rita Araújo', '11.293.967-3'), 
+('93137333580', 'Thales Paulo Edson Carvalho', '35.985.773-5'), 
+('53356494708', 'Iago Arthur Marcos Vinicius Vieira', '50.480.310-4'), 
+('73513220073', 'Emily Bianca Marina Lopes', '50.266.419-8'), 
+('34190994014', 'Rita Raimunda Cristiane Pinto', '45.610.375-2'), 
+('21007273038', 'Heitor Enzo Márcio da Luz', '28.812.587-3'), 
+('82250927162', 'Juliana Adriana de Paula', '13.142.157-8'), 
+('92272268692', 'Gustavo Bruno Calebe Barbosa', '42.945.688-8');
+
+INSERT INTO HOSPEDE_CONSOME_PRODUTOS(descricao, cpf_hospede) VALUES 
+('refrigerante coca-cola', '39737253060' ),
+('refrigerante guaraná', '57628986285' ),
+('barra de chocolate nestlé', '86279139352' ),
+('chocolate tortuguita 18g', '93137333580' ),
+('água mineral crystal 500ml', '53356494708' ),
+('água de coco sococo 1L', '73513220073' ),
+('barra de proteína biO2 45g', '34190994014' ),
+('suco prat`s laranja 1L', '21007273038' ),
+('amendoim japonês 1kg', '82250927162' ),
+('salgadinho cheetos quiejo 50g', '92272268692' );
 
 INSERT INTO FUNCIONARIO(nome, cpf, rg, num_carteira_trabalho, salario) VALUES 
 ('Ryan Diogo Vieira', '71510963308', '14.248.051-4', '59398503729', 1430.00), 
@@ -115,7 +114,11 @@ INSERT INTO FUNCIONARIO(nome, cpf, rg, num_carteira_trabalho, salario) VALUES
 ('Martin Geraldo Bento da Silva', '51083608517', '21.346.001-4', '66014600792', 1299.00), 
 ('Jorge Erick Marcelo Araújo', '67391151173', '38.418.843-6', '74669338250', 1499.00), 
 ('Rafael Kauê Cavalcanti', '56841755383', '24.301.511-2', '44639499424', 1599.00), 
-('Thiago Carlos Eduardo Tomás Mendes', '07797804184', '29.621.156-4', '55472768279', 1199.00);
+('Thiago Carlos Eduardo Tomás Mendes', '07797804184', '296211564', '55472768279', 1199.00),
+('Luana Sabrina Mendes', '82660975426', '34.830.265-4', '94798714148', 1199.00), 
+('Maitê Tereza Beatriz Alves', '71620412306', '46.248.622-9', '238.69441662', 1129.00), 
+('Mateus Diego da Mata', '97716777807', '46.533.004-6', '21467777740', 1099.99), 
+('Simone Josefa Fogaça', '47628942571', '48.333.560-5', '59475713060', 1026.00);
 
 INSERT INTO MANOBRISTA(id_manobrista) VALUES 
 (1), 
@@ -129,6 +132,19 @@ INSERT INTO MANOBRISTA(id_manobrista) VALUES
 (9), 
 (10);
 
+INSERT INTO MANOBRA_CARRO(placa_carro, id_manobrista) VALUES 
+('NES6152', 1),
+('MVW2634', 2),
+('NAO1820', 3),
+('KCP0848', 4),
+('NAQ9993', 5),
+('NES8210', 6),
+('HXY8977', 7),
+('KCI6881', 8),
+('MWP0291', 9),
+('KCO7641', 10);
+
+
 INSERT INTO CNH(cnh, nivel_cnh, tempo_cnh, id_manobrista) VALUES
 (84140557207,'B', 02/01/2010, 1), 
 (39111325350,'B', 03/12/2011, 2), 
@@ -141,7 +157,6 @@ INSERT INTO CNH(cnh, nivel_cnh, tempo_cnh, id_manobrista) VALUES
 (92501963216,'C', 29/02/2008, 9), 
 (12784952105,'C', 12/01/2006, 10);
 
--- Lembrar de criar mais pessoas que se tornam auxiliares
 INSERT INTO COZINHEIRO(id_cozinheiro, area_atuacao) VALUES 
 (11, 'segurança alimentar'), 
 (12, 'Gestor de estabelecimentos culinários'), 
@@ -164,10 +179,10 @@ INSERT INTO AUXILIAR_DE_COZINHA(id_aux_cozinha, id_chefe) VALUES
 (17,20), 
 (18,20), 
 (19,20), 
-(?,20), 
-(?,20), 
-(?,20), 
-(?,20);
+(32,20), 
+(33,20), 
+(34,20), 
+(35,20);
 
 INSERT INTO GERENTE(id_gerente, formacao, cursos, comissao) VALUES
 (21, 'turismo e meio ambiente', 'espanhol, inglês, administração, auxiliar financeiro', 200.00);
@@ -186,16 +201,16 @@ INSERT INTO ATENDENTE(id_atendente) VALUES
 (31);
 
 INSERT INTO CAMAREIRA(id_camareira) VALUES 
-(?), 
-(?),  
-(?), 
-(?),  
-(?), 
-(?), 
-(?), 
-(?),  
-(?), 
-(?);
+(32), 
+(33),  
+(34), 
+(35),  
+(36), 
+(37), 
+(38), 
+(39),  
+(40), 
+(41);
 
 INSERT INTO CARDAPIO(dia, id_chefe_cozinha) VALUES
 ( 01/11/2020, 20 ), 
@@ -263,18 +278,17 @@ INSERT INTO QUARTO(capacidade, andar, status, num_quarto) VALUES
 ('3', '3', 'ocupado', 9), 
 ('3', '3', 'ocupado', 10);
 
-INSERT INTO CAMAREIRA_LIMPA_QUARTO() VALUES 
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-(),
-();
-
+INSERT INTO CAMAREIRA_LIMPA_QUARTO(id_camareira, capacidade) VALUES 
+(32,1),
+(33,1),
+(34,1),
+(35,2),
+(36,2),
+(37,2),
+(38,2),
+(39,2),
+(40,3),
+(41,3);
 
 INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES 
 ('standard solteiro', 'quarto simples para solteiro com serviços básicos', 1), 
@@ -313,5 +327,4 @@ INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente) VALUES
 (09/11/2020, 'acontecendo', 199.99, 29), 
 (09/11/2020, 'acontecendo', 49.99, 30), 
 (09/11/2020, 'acontecendo', 99.99, 31);
-
 
