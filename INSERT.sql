@@ -60,17 +60,6 @@ INSERT INTO PRODUTOS(descricao, categoria, preco) VALUES
 ('amendoim japonês 1kg', 'guloseimas', 11.99), 
 ('salgadinho cheetos quiejo 50g', 'guloseimas', 3.99);
 
-('39737253060', 'Rita Fátima Mendes', '28.440.944-3'),
-('57628986285', 'Louise Manuela Agatha Viana', '32.256.025-1'), 
-('86279139352', 'Sandra Márcia Rita Araújo', '11.293.967-3'), 
-('93137333580', 'Thales Paulo Edson Carvalho', '35.985.773-5'), 
-('53356494708', 'Iago Arthur Marcos Vinicius Vieira', '50.480.310-4'), 
-('73513220073', 'Emily Bianca Marina Lopes', '50.266.419-8'), 
-('34190994014', 'Rita Raimunda Cristiane Pinto', '45.610.375-2'), 
-('21007273038', 'Heitor Enzo Márcio da Luz', '28.812.587-3'), 
-('82250927162', 'Juliana Adriana de Paula', '13.142.157-8'), 
-('92272268692', 'Gustavo Bruno Calebe Barbosa', '42.945.688-8');
-
 INSERT INTO HOSPEDE_CONSOME_PRODUTOS(descricao, cpf_hospede) VALUES 
 ('refrigerante coca-cola', '39737253060' ),
 ('refrigerante guaraná', '57628986285' ),
@@ -167,6 +156,10 @@ INSERT INTO COZINHEIRO(id_cozinheiro, area_atuacao) VALUES
 (17, 'auxiliar'), 
 (18, 'auxiliar'), 
 (19, 'auxiliar'), 
+(32, 'auxiliar'), 
+(33, 'auxiliar'), 
+(34, 'auxiliar'), 
+(35, 'auxiliar'), 
 (20, 'Chef de cozinha');
 
 INSERT INTO CHEFE_DE_COZINHA(id_chefe_cozinha) VALUES 
