@@ -181,7 +181,6 @@ CREATE TABLE QUARTO(
     andar INTEGER,
 	num_quarto INTEGER,
 	status BOOLEAN,
-	preco DECIMAL(10,2),
 	capacidade INTEGER
 );
 
@@ -193,6 +192,7 @@ CREATE TABLE CATEGORIA(
 
 CREATE TABLE QUARTO_POSSUI_CATEGORIA(
     id_quarto INTEGER,
+	preco DECIMAL(10,2),
     tipo_cat VARCHAR(60),
     id_hospedagem INTEGER NOT NULL,
     FOREIGN KEY(id_quarto) REFERENCES QUARTO(id),
