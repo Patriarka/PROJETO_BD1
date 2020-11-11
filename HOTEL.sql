@@ -177,8 +177,12 @@ CREATE TABLE HOSPEDAGEM(
 );
 
 CREATE TABLE QUARTO(
-	id INTEGER PRIMARY KEY auto_increment,
-     capacidade INTEGER
+	id INTEGER PRIMARY KEY auto_increment,	
+    andar INTEGER,
+	num_quarto INTEGER,
+	status BOOLEAN,
+	preco DECIMAL(10,2),
+	capacidade INTEGER
 );
 
 CREATE TABLE CATEGORIA(
@@ -188,12 +192,8 @@ CREATE TABLE CATEGORIA(
 );
 
 CREATE TABLE QUARTO_POSSUI_CATEGORIA(
-    	andar INTEGER,
-    status BOOLEAN,
-    num_quarto INTEGER,
     id_quarto INTEGER,
     tipo_cat VARCHAR(60),
-    preco DECIMAL(10,2),
     id_hospedagem INTEGER NOT NULL,
     FOREIGN KEY(id_quarto) REFERENCES QUARTO(id),
     FOREIGN KEY(tipo_cat) REFERENCES CATEGORIA(tipo),
