@@ -1,3 +1,6 @@
+CREATE DATABASE HOTEL;
+USE HOTEL;
+
 DROP TABLE IF EXISTS CAMAREIRA_LIMPA_QUARTO;
 DROP TABLE IF EXISTS QUARTO_POSSUI_CATEGORIA;
 DROP TABLE IF EXISTS CATEGORIA;
@@ -70,7 +73,7 @@ CREATE TABLE CHEFE_DE_COZINHA(
 CREATE TABLE AUXILIAR_DE_COZINHA(
 	id_aux_cozinha INTEGER PRIMARY KEY,
     FOREIGN KEY(id_aux_cozinha) REFERENCES COZINHEIRO(id_cozinheiro) ON DELETE CASCADE,
-    id_chefe INTEGER,
+    id_chefe INTEGER NOT NULL,
     FOREIGN KEY(id_chefe) REFERENCES CHEFE_DE_COZINHA(id_chefe_cozinha)
 );
 
@@ -174,33 +177,35 @@ CREATE TABLE HOSPEDAGEM(
 );
 
 CREATE TABLE QUARTO(
-	capacidade INTEGER PRIMARY KEY,
-    andar INTEGER,
-    status BOOLEAN,
-    num_quarto INTEGER
+	id INTEGER PRIMARY KEY auto_increment,
+     capacidade INTEGER
 );
 
 CREATE TABLE CATEGORIA(
-	tipo VARCHAR(60) PRIMARY KEY,
-	descricao VARCHAR(100),
+    tipo VARCHAR(60) PRIMARY KEY,
+    descricao VARCHAR(100),
     nivel_cat INTEGER
 );
 
 CREATE TABLE QUARTO_POSSUI_CATEGORIA(
-	cap_quarto INTEGER,
+    	andar INTEGER,
+    status BOOLEAN,
+    num_quarto INTEGER,
+    id_quarto INTEGER,
     tipo_cat VARCHAR(60),
     preco DECIMAL(10,2),
     id_hospedagem INTEGER NOT NULL,
-    FOREIGN KEY(cap_quarto) REFERENCES QUARTO(capacidade),
+    FOREIGN KEY(id_quarto) REFERENCES QUARTO(id),
     FOREIGN KEY(tipo_cat) REFERENCES CATEGORIA(tipo),
     FOREIGN KEY(id_hospedagem) REFERENCES HOSPEDAGEM(id_hosp),
-    PRIMARY KEY(cap_quarto, tipo_cat)
+    PRIMARY KEY(id_quarto, tipo_cat)
 );
 
 CREATE TABLE CAMAREIRA_LIMPA_QUARTO(
-	id_camareira INTEGER,
-    capacidade INTEGER,
-    FOREIGN KEY(id_camareira) REFERENCES CAMAREIRA(id_camareira),
-    FOREIGN KEY(capacidade) REFERENCES QUARTO(capacidade),
-    PRIMARY KEY(id_camareira, capacidade)
+	id_camar INTEGER,
+    id_quarto INTEGER,
+    tipo_cat VARCHAR(60),
+    FOREIGN KEY(id_camar) REFERENCES CAMAREIRA(id_camareira),
+    FOREIGN KEY(id_quarto, tipo_cat) REFERENCES QUARTO_POSSUI_CATEGORIA(id_quarto, tipo_cat),
+    PRIMARY KEY(id_camar, id_quarto, tipo_cat)
 );
