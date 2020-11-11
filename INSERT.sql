@@ -1,3 +1,4 @@
+
 INSERT INTO FORNECEDOR(cnpj, nome_empresa, razao_social, cidade) VALUES 
 ('77444740000141', 'LIZA', 'Liza Alimentos Ltda', 'São Paulo'), 
 ('07977050000172', 'Heinz', 'Heinz Alimentos Ltda', 'São Paulo'), 
@@ -104,9 +105,16 @@ INSERT INTO FUNCIONARIO(nome, cpf, rg, num_carteira_trabalho, salario) VALUES
 ('Rafael Kauê Cavalcanti', '56841755383', '24.301.511-2', '44639499424', 1599.00), 
 ('Thiago Carlos Eduardo Tomás Mendes', '07797804184', '296211564', '55472768279', 1199.00),
 ('Luana Sabrina Mendes', '82660975426', '34.830.265-4', '94798714148', 1199.00), 
-('Maitê Tereza Beatriz Alves', '71620412306', '46.248.622-9', '238.69441662', 1129.00), 
+('Maitê Tereza Beatriz Alves', '71620412306', '46.248.622-9', '23869441662', 1129.00), 
 ('Mateus Diego da Mata', '97716777807', '46.533.004-6', '21467777740', 1099.99), 
-('Simone Josefa Fogaça', '47628942571', '48.333.560-5', '59475713060', 1026.00);
+('Simone Josefa Fogaça', '47628942571', '48.333.560-5', '59475713060', 1026.00),
+('Saoirse Ronan', '00467852995', '10.092.760-9', '45626953464', 1026.00),
+('Leonardo Di Caprio', '48486497817', '49.475.506-4', '09958767142', 1099.00),
+('Tom Hanks', '60202244571', '17.473.981-3', '77468982815', 1129.00),
+('Ryan Gosling', '59356706158', '47.705.275-7', '59403756294', 1119.00),
+('Lucas Firmo Portman', '44954603668', '45.775.816-8', '02795701973', 1199.00),
+('Neymar Junior dos Santos', '23678787657', '10.802.258-4', '58501303237', 1199.00),
+('Claire Foy', '68383932049', '36.265.502-9', '76878954660', 1299.00);
 
 INSERT INTO MANOBRISTA(id_manobrista) VALUES 
 (1), 
@@ -132,18 +140,17 @@ INSERT INTO MANOBRA_CARRO(placa_carro, id_manobrista) VALUES
 ('MWP0291', 9),
 ('KCO7641', 10);
 
-
 INSERT INTO CNH(cnh, nivel_cnh, tempo_cnh, id_manobrista) VALUES
-(84140557207,'B', 02/01/2010, 1), 
-(39111325350,'B', 03/12/2011, 2), 
-(04307698900,'D', 09/10/2009, 3), 
-(34588447813,'B', 11/08/2002, 4), 
-(67152519991,'C', 09/11/2000, 5), 
-(63263979867,'B', 22/07/1997, 6), 
-(42864724639,'C', 24/11/2012, 7), 
-(92526923800,'B', 19/06/2010, 8), 
-(92501963216,'C', 29/02/2008, 9), 
-(12784952105,'C', 12/01/2006, 10);
+('84140557207','B', 02/01/2010, 1), 
+('39111325350','B', 03/12/2011, 2), 
+('04307698900','D', 09/10/2009, 3), 
+('34588447813','B', 11/08/2002, 4), 
+('67152519991','C', 09/11/2000, 5), 
+('63263979867','B', 22/07/1997, 6), 
+('42864724639','C', 24/11/2012, 7), 
+('92526923800','B', 19/06/2010, 8), 
+('92501963216','C', 29/02/2008, 9), 
+('12784952105','C', 12/01/2006, 10);
 
 INSERT INTO COZINHEIRO(id_cozinheiro, area_atuacao) VALUES 
 (11, 'segurança alimentar'), 
@@ -180,7 +187,6 @@ INSERT INTO GERENTE(id_gerente, formacao, cursos, comissao) VALUES
 (21, 'turismo e meio ambiente', 'espanhol, inglês, administração, auxiliar financeiro', 200.00);
 
 INSERT INTO ATENDENTE(id_atendente) VALUES
-(21), 
 (22), 
 (23), 
 (24), 
@@ -190,10 +196,10 @@ INSERT INTO ATENDENTE(id_atendente) VALUES
 (28), 
 (29), 
 (30), 
-(31);
+(31), 
+(32);
 
-INSERT INTO CAMAREIRA(id_camareira) VALUES 
-(32), 
+INSERT INTO CAMAREIRA(id_camareira) VALUES  
 (33),  
 (34), 
 (35),  
@@ -201,21 +207,22 @@ INSERT INTO CAMAREIRA(id_camareira) VALUES
 (37), 
 (38), 
 (39),  
-(40), 
-(41);
+(40),
+(41), 
+(42);
 
 INSERT INTO CARDAPIO(dia, id_chefe_cozinha) VALUES
-( 01/11/2020, 20 ), 
-( 02/11/2020, 20 ), 
-( 03/11/2020, 20 ), 
-( 04/11/2020, 20 ), 
-( 05/11/2020, 20 ), 
-( 06/11/2020, 20 ), 
-( 07/11/2020, 20 ), 
-( 08/11/2020, 20 ), 
-( 09/11/2020, 20 ), 
-( 10/11/2020, 20 ), 
-( 11/11/2020, 20 );
+( '2020/11/01', 20 ), 
+( '2020/11/02', 20 ), 
+( '2020/11/03', 20 ), 
+( '2020/11/04', 20 ), 
+( '2020/11/05', 20 ), 
+( '2020/11/06', 20 ), 
+( '2020/11/07', 20 ), 
+( '2020/11/08', 20 ), 
+( '2020/11/09', 20 ), 
+( '2020/11/10', 20 ), 
+( '2020/11/11', 20 );
 
 INSERT INTO ALIMENTO(nome, cat, qtde, id_comprador) VALUES 
 ('refrigerante', 'bebidas', 24, 21), 
@@ -232,55 +239,43 @@ INSERT INTO ALIMENTO(nome, cat, qtde, id_comprador) VALUES
 ('Pudim', 'sobremesa', 3, 21);
 
 INSERT INTO ALIMENTO_TEM_CARDAPIO(dia_cardap, nome_alim) VALUES 
-( 01/11/2020, 'refrigerante' ), 
-( 02/11/2020, 'refrigerante' ), 
-( 02/11/2020, 'Arroz' ), 
-( 02/11/2020, 'Linguiça' ), 
-( 02/11/2020, 'Macarrão' ), 
-( 03/11/2020, 'Alface' ), 
-( 03/11/2020, 'Carne de Frango' ), 
-( 03/11/2020, 'Arroz' ), 
-( 04/11/2020, 'Arroz' ), 
-( 04/11/2020, 'refrigerante' ), 
-( 04/11/2020, 'Macarrão' );
+( '2020/11/01', 'refrigerante' ), 
+( '2020/11/02', 'refrigerante' ), 
+( '2020/11/02', 'Arroz' ), 
+( '2020/11/02', 'Linguiça' ), 
+( '2020/11/02', 'Macarrão' ), 
+( '2020/11/03', 'Alface' ), 
+( '2020/11/03', 'Carne de Frango' ), 
+( '2020/11/03', 'Arroz' ), 
+( '2020/11/04', 'Arroz' ), 
+( '2020/11/04', 'refrigerante' ), 
+( '2020/11/04', 'Macarrão' );
 
 INSERT INTO ALIMENTO_TEM_FORNECEDOR(cnpj_forn , nome_alim , data_fornec) VALUES 
-('65001430000173', 'refrigerante', 01/11/2020),
-('07977050000172', 'leite', 09/04/2020),
-('77444740000141', 'Macarrão', 11/06/2020),
-('49109714000121', 'Arroz', 19/08/2020),
-('76741963000108', 'Linguiça', 16/09/2020),
-('76741963000108', 'Carne de Frango', 02/08/2020),
-('95774597000138', 'Laranja', 01/08/2020),
-('41097062000140', 'Pão francês', 08/09/2020),
-('76741963000108', 'Mussarela', 22/10/2020),
-('49109714000121', 'Manteiga', 02/11/2020),
-('41097062000140', 'Alface', 19/09/2020),
-('95774597000138', 'Pudim', 07/10/2020);
+('65001430000173', 'refrigerante', '2020/11/01'),
+('07977050000172', 'leite', '2020/04/09'),
+('77444740000141', 'Macarrão', '2020/11/06'),
+('49109714000121', 'Arroz', '2020/08/19'),
+('76741963000108', 'Linguiça', '2020/09/16'),
+('76741963000108', 'Carne de Frango', '2020/08/02'),
+('95774597000138', 'Laranja',' 2020/08/01'),
+('41097062000140', 'Pão francês', '2020/09/08'),
+('76741963000108', 'Mussarela', '2020/10/22'),
+('49109714000121', 'Manteiga', '2020/11/02'),
+('41097062000140', 'Alface', '2020/09/19'),
+('95774597000138', 'Pudim', '2020/10/07');
 
-INSERT INTO QUARTO(capacidade, andar, status, num_quarto) VALUES
-('1', '1', 'ocupado', 1), 
-('1', '1', 'desocupado', 2), 
-('1', '1', 'desocupado', 3), 
-('1', '1', 'desocupado', 4), 
-('2', '2', 'desocupado', 5),
-('2', '2', 'desocupado', 6), 
-('2', '2', 'desocupado', 7), 
-('2', '3', 'desocupado', 8), 
-('3', '3', 'ocupado', 9), 
-('3', '3', 'ocupado', 10);
-
-INSERT INTO CAMAREIRA_LIMPA_QUARTO(id_camareira, capacidade) VALUES 
-(32,1),
-(33,1),
-(34,1),
-(35,2),
-(36,2),
-(37,2),
-(38,2),
-(39,2),
-(40,3),
-(41,3);
+INSERT INTO QUARTO(id, capacidade) VALUES
+(1, 1), 
+(2, 1), 
+(3, 1), 
+(4, 1), 
+(5, 2),
+(6, 2), 
+(7, 2), 
+(8, 2), 
+(9, 4), 
+(10, 4);
 
 INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES 
 ('standard solteiro', 'quarto simples para solteiro com serviços básicos', 1), 
@@ -294,29 +289,50 @@ INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES
 ('Master Luxo duplo casal', 'quarto grande e luxuoso para casal no mesmo quarto, com serviços da melhor qualidade', 4), 
 ('Master Luxo duplo quarto', 'ambiente com dois quartos luxuosos com camas de casal e com serviços da melhor qualidade', 4);
 
-INSERT INTO QUARTO_POSSUI_CATEGORIA(cap_quarto, tipo_cat, preco, id_hospedagem) VALUES 
-(1, 'standard solteiro', 49.99, 1), 
-(1, 'master solteiro', 99.99, 2), 
-(1, 'luxo solteiro', 199.99, 3), 
-(2, 'luxo duplo solteiro', 229.99, 4), 
-(2, 'standard casal', 109.99, 5), 
-(2, 'master casal', 179.99, 6), 
-(2, 'luxo casal', 279.99, 7), 
-(2, 'Master Luxo casal', 299.99, 8), 
-(4, 'Master Luxo duplo casal', 429.99, 9), 
-(4, 'Master Luxo duplo quarto', 499.99, 10);
-
 INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente) VALUES 
-(06/11/2020, 'finalizada', 99.99, 21), 
-(06/11/2020, 'finalizada', 49.99, 22), 
-(06/11/2020, 'finalizada', 49.99, 23), 
-(07/11/2020, 'finalizada', 279.99, 24), 
-(09/11/2020, 'finalizada', 199.99, 25), 
-(07/11/2020, 'acontecendo', 149.97, 26), 
-(09/11/2020, 'finalizada', 499.99, 27), 
-(07/11/2020, 'finalizada', 279.99, 28), 
-(08/11/2020, 'acontecendo', 109.99, 28), 
-(09/11/2020, 'acontecendo', 199.99, 29), 
-(09/11/2020, 'acontecendo', 49.99, 30), 
-(09/11/2020, 'acontecendo', 99.99, 31);
+('2020/11/06', 0, 99.99, 22), 
+('2020/11/06', 0, 49.99, 23), 
+('2020/11/06', 0, 49.99, 24), 
+('2020/11/07', 0, 279.99, 25), 
+('2020/11/09', 0, 199.99, 26), 
+('2020/11/07', 1, 149.97, 27), 
+('2020/11/09', 0, 499.99, 27), 
+('2020/11/07', 0, 279.99, 28), 
+('2020/11/08', 1, 109.99, 28), 
+('2020/11/09', 1, 199.99, 30), 
+('2020/11/09', 0, 49.99, 31), 
+('2020/11/09', 1, 99.99, 32);
+
+INSERT INTO QUARTO_POSSUI_CATEGORIA(andar, status, num_quarto, tipo_cat, id_quarto, preco, id_hospedagem) VALUES
+(1, 0, 1, 'standard solteiro', 1, 49.99, 1),
+(1, 0, 2, 'standard casal', 2, 99.99, 2),
+(1, 0, 3, 'master solteiro', 3, 199.99, 3),
+(1, 0, 4, 'master casal', 4, 229.99, 4),
+(1, 0, 5, 'luxo solteiro', 5, 109.99, 5),
+(1, 0, 6, 'luxo duplo solteiro', 6, 179.99, 6),
+(2, 0, 7, 'luxo casal', 7, 279.99, 7),
+(2, 0, 8, 'Master Luxo casal', 8, 299.99, 8),
+(2, 0, 9, 'Master Luxo duplo casal', 9, 429.99, 9),
+(2, 0, 10, 'Master Luxo duplo quarto', 10, 499.99, 10);
+
+INSERT INTO CAMAREIRA_LIMPA_QUARTO(id_camar, id_quarto, tipo_cat) VALUES 
+(33, 1, 'standard solteiro'),
+(34, 2, 'standard casal'),
+(35, 3, 'master solteiro'),
+(36, 4, 'master casal'),
+(37, 5, 'luxo solteiro'),
+(38, 6, 'luxo duplo solteiro'),
+(39, 7, 'luxo casal'),
+(40, 8, 'Master Luxo casal'),
+(41, 9, 'Master Luxo duplo casal'),
+(42, 10, 'Master Luxo duplo quarto');
+
+
+
+
+
+
+
+
+
 
