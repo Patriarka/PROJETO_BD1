@@ -325,13 +325,3 @@ INSERT INTO CAMAREIRA_LIMPA_QUARTO(id_camar, id_quarto, tipo_cat) VALUES
 (40, 8, 'Master Luxo casal'),
 (41, 9, 'Master Luxo duplo casal'),
 (42, 10, 'Master Luxo duplo quarto');
-
-
-
-
-
-
-
-
-
-
