@@ -1,4 +1,3 @@
-
 INSERT INTO FORNECEDOR(cnpj, nome_empresa, razao_social, cidade) VALUES 
 ('77444740000141', 'LIZA', 'Liza Alimentos Ltda', 'São Paulo'), 
 ('07977050000172', 'Heinz', 'Heinz Alimentos Ltda', 'São Paulo'), 
