@@ -1,3 +1,4 @@
+
 INSERT INTO FORNECEDOR(cnpj, nome_empresa, razao_social, cidade) VALUES 
 ('77444740000141', 'LIZA', 'Liza Alimentos Ltda', 'São Paulo'), 
 ('07977050000172', 'Heinz', 'Heinz Alimentos Ltda', 'São Paulo'), 
@@ -264,17 +265,17 @@ INSERT INTO ALIMENTO_TEM_FORNECEDOR(cnpj_forn , nome_alim , data_fornec) VALUES
 ('41097062000140', 'Alface', '2020/09/19'),
 ('95774597000138', 'Pudim', '2020/10/07');
 
-INSERT INTO QUARTO(id, andar, num_quarto, status, preco, capacidade) VALUES
-(1, 1, 1, 0, 49.99, 1), 
-(2, 1, 2, 0, 99.99, 1), 
-(3, 1, 3, 0, 199.99, 1), 
-(4, 1, 4, 0, 229.99, 1), 
-(5, 1, 5, 0, 109.99, 2),
-(6, 1, 6, 0, 179.99, 2), 
-(7, 2, 7, 0, 279.99, 2), 
-(8, 2, 8, 0, 299.99, 2), 
-(9, 2, 9, 0, 429.99, 4), 
-(10, 2, 10, 0, 499.99, 4);
+INSERT INTO QUARTO(id, andar, num_quarto, status, capacidade) VALUES
+(1, 1, 1, 0, 1), 
+(2, 1, 2, 0, 1), 
+(3, 1, 3, 0, 1), 
+(4, 1, 4, 0, 1), 
+(5, 1, 5, 0, 2),
+(6, 1, 6, 0, 2), 
+(7, 2, 7, 0, 2), 
+(8, 2, 8, 0, 2), 
+(9, 2, 9, 0, 4), 
+(10, 2, 10, 0, 4);
 
 INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES 
 ('standard solteiro', 'quarto simples para solteiro com serviços básicos', 1), 
@@ -302,17 +303,17 @@ INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente) VALUES
 ('2020/11/09', 0, 49.99, 31), 
 ('2020/11/09', 1, 99.99, 32);
 
-INSERT INTO QUARTO_POSSUI_CATEGORIA(tipo_cat, id_quarto, id_hospedagem) VALUES
-('standard solteiro', 1, 1),
-('standard casal', 2, 2),
-('master solteiro', 3, 3),
-('master casal', 4, 4),
-('luxo solteiro', 5, 5),
-('luxo duplo solteiro', 6, 6),
-('luxo casal', 7, 7),
-('Master Luxo casal', 8, 8),
-('Master Luxo duplo casal', 9, 9),
-('Master Luxo duplo quarto', 10, 10);
+INSERT INTO QUARTO_POSSUI_CATEGORIA(tipo_cat, preco, id_quarto, id_hospedagem) VALUES
+('standard solteiro', 49.99, 1, 1),
+('standard casal', 99.99, 2, 2),
+('master solteiro',199.99, 3, 3),
+('master casal', 229.99, 4, 4),
+('luxo solteiro', 109.99, 5, 5),
+('luxo duplo solteiro', 179.99, 6, 6),
+('luxo casal', 279.99, 7, 7),
+('Master Luxo casal', 299.99, 8, 8),
+('Master Luxo duplo casal', 429.99, 9, 9),
+('Master Luxo duplo quarto', 499.99, 10, 10);
 
 INSERT INTO CAMAREIRA_LIMPA_QUARTO(id_camar, id_quarto, tipo_cat) VALUES 
 (33, 1, 'standard solteiro'),
