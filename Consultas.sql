@@ -68,12 +68,12 @@ SELECT M.id_manobrista
 FROM MANOBRISTA AS M
 WHERE M.id_manobrista IN 
 	( SELECT C.id_manobrista FROM CNH AS C
-	 WHERE C.nivel_cnh = 'B'
-     AND M.id_manobrista = C.id_manobrista
-     AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
-				  WHERE M.id_manobrista = MC.id_manobrista
-				  GROUP BY MC.id_manobrista
-					HAVING COUNT(MC.id_manobrista) > 1) );
+	  WHERE C.nivel_cnh = 'B'
+     	  AND M.id_manobrista = C.id_manobrista
+          AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
+		       WHERE M.id_manobrista = MC.id_manobrista
+		       GROUP BY MC.id_manobrista
+		       HAVING COUNT(MC.id_manobrista) > 1) );
 
 -- 9 Selecionar as camareiras de nome 'Claire Foy' 
 
