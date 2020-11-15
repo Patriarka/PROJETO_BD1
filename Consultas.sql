@@ -62,7 +62,18 @@ WHERE EXISTS
 		GROUP BY CLQ.id_quarto
 		HAVING COUNT(CLQ.id_quarto) = 1);
 
--- 8 Selecionar apenas o carros do tipo 'gol' da cor 'prata'
+/* 8. Selecionar o id dos manobristas que possuem uma CNH de nivel B e que manobram mais do que um carro */
+
+SELECT M.id_manobrista
+FROM MANOBRISTA AS M
+WHERE M.id_manobrista IN 
+	( SELECT C.id_manobrista FROM CNH AS C
+	 WHERE C.nivel_cnh = 'B'
+     AND M.id_manobrista = C.id_manobrista
+     AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
+				  WHERE M.id_manobrista = MC.id_manobrista
+				  GROUP BY MC.id_manobrista
+					HAVING COUNT(MC.id_manobrista) > 1) );
 
 -- 9 Selecionar as camareiras de nome 'Claire Foy' 
 
