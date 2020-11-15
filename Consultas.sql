@@ -1,4 +1,4 @@
-/* 1 Selecionar os nomes dos contatos que o nome comece com a letra 'O' e que seu
+/* 1. Selecionar os nomes dos contatos que seu nome comece com a letra 'O' e que seu
 fornecedor seja da cidade de 'São Paulo' */
 
 SELECT C.nome 
@@ -9,7 +9,7 @@ AND C.cnpj_empresa IN
       FROM FORNECEDOR AS F
       WHERE F.cidade = 'São Paulo');
 
-/* 2 Selecionar o nome dos fornecedores que fizeram o fornecimento de mais que um alimento */
+/* 2. Selecionar o nome dos fornecedores que fizeram o fornecimento de mais que um alimento */
 
 SELECT F.nome_empresa
 FROM FORNECEDOR AS F
@@ -19,7 +19,7 @@ WHERE EXISTS
 	GROUP BY A.cnpj_forn
 	HAVING COUNT(A.cnpj_forn) > 1);
 
-/* 3 Selecionar os manobristas que possuem um nivel de CNH diferente de B */
+/* 3. Selecionar os manobristas que possuem um nivel de CNH diferente de B */
 
 SELECT * FROM MANOBRISTA AS M
 WHERE EXISTS 
@@ -27,7 +27,7 @@ WHERE EXISTS
 WHERE C.nivel_cnh <> 'B'
 	AND M.id_manobrista = C.id_manobrista);
 
-/* 4 Selecionar o nome dos funcionarios que são cozinheiros e que possuem um salario maior do que 1300 */
+/* 4. Selecionar o nome dos funcionarios que são cozinheiros e que possuem um salario maior do que 1300 */
 
 SELECT F.nome 
 FROM FUNCIONARIO AS F
@@ -41,9 +41,8 @@ tenham comprado algum dos produtos disponíveis */
 
 SELECT * FROM HOSPEDE H
 WHERE H.cpf LIKE '%2'
-AND EXISTS (SELECT * 
-	    FROM HOSPEDE_CONSOME_PRODUTOS HCP
-	    WHERE HCP.cpf_hospede = H.cpf);
+AND EXISTS (SELECT * FROM HOSPEDE_CONSOME_PRODUTOS HCP
+			WHERE HCP.cpf_hospede = H.cpf);
 
 /* 6 Selecionar o nome dos hóspedes que não possuem um carro da cor vermelho */
 
@@ -53,7 +52,7 @@ WHERE NOT EXISTS
 	 WHERE C.cor = 'vermelho'
 		AND H.cpf = C.cpf_hosp);
 
-/* 7 Selecionar o num dos quartos que são limpos por apenas uma camareira */
+/* 7 Selecionar o número dos quartos que são limpos por mais do que uma camareira */
 
 SELECT Q.num_quarto FROM QUARTO Q
 WHERE EXISTS
@@ -68,20 +67,25 @@ SELECT M.id_manobrista
 FROM MANOBRISTA AS M
 WHERE M.id_manobrista IN 
 	( SELECT C.id_manobrista FROM CNH AS C
-	  WHERE C.nivel_cnh = 'B'
-     	  AND M.id_manobrista = C.id_manobrista
-          AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
-		       WHERE M.id_manobrista = MC.id_manobrista
-		       GROUP BY MC.id_manobrista
-		       HAVING COUNT(MC.id_manobrista) > 1) );
+	 WHERE C.nivel_cnh = 'B'
+     AND M.id_manobrista = C.id_manobrista
+     AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
+				  WHERE M.id_manobrista = MC.id_manobrista
+				  GROUP BY MC.id_manobrista
+					HAVING COUNT(MC.id_manobrista) > 1) );
 
--- 9 Selecionar as camareiras de nome 'Claire Foy' 
+/* 9. Selecionar o nome e o cpf dos hóspedes que fizeram mais do que uma hospedagem com um valor maior do que o valor de 200.00 */
 
--- 10 Selecionar os alimentos e o seu respectivo fornecedor dos alimentos que fornecidos antes do dia '08/11/2020'
+SELECT H.nome, H.cpf FROM HOSPEDE AS H
+WHERE EXISTS (SELECT * FROM HOSPEDAGEM AS HOSP
+			  WHERE HOSP.valor > 200.00
+				AND H.cpf = HOSP.cpf_h
+			  GROUP BY HOSP.cpf_h
+              HAVING COUNT(HOSP.cpf_h) > 1); 
 
 /* 10. Selecionar o preço do quartos que possuem um nivel_cat de 3 */
 
 SELECT QPC.preco FROM QUARTO_POSSUI_CATEGORIA AS QPC
 WHERE EXISTS (SELECT * FROM CATEGORIA AS C
               WHERE C.nivel_cat = 3
-	      	AND C.tipo = QPC.tipo_cat);
+				AND C.tipo = QPC.tipo_cat);
