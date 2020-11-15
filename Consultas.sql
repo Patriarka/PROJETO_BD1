@@ -66,4 +66,4 @@ WHERE NOT EXISTS
 SELECT QPC.preco FROM QUARTO_POSSUI_CATEGORIA AS QPC
 WHERE EXISTS (SELECT * FROM CATEGORIA AS C
               WHERE C.nivel_cat = 3
-				AND C.tipo = QPC.tipo_cat);
+	      	AND C.tipo = QPC.tipo_cat);
