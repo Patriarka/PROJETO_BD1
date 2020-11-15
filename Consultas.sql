@@ -11,6 +11,13 @@ AND C.cnpj_empresa IN
 
 /* 2 Selecionar o nome dos fornecedores que fizeram o fornecimento de mais que um alimento */
 
+SELECT F.nome_empresa
+FROM FORNECEDOR AS F
+WHERE EXISTS 
+	(SELECT * FROM ALIMENTO_TEM_FORNECEDOR AS A
+	WHERE A.cnpj_forn = F.cnpj
+	GROUP BY A.cnpj_forn
+	HAVING COUNT(A.cnpj_forn) > 1);
 
 /* 3 Selecionar os manobristas que possuem um nivel de CNH diferente de B */
 
