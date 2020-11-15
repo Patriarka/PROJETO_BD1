@@ -41,8 +41,9 @@ tenham comprado algum dos produtos disponíveis */
 
 SELECT * FROM HOSPEDE H
 WHERE H.cpf LIKE '%2'
-AND EXISTS (SELECT * FROM HOSPEDE_CONSOME_PRODUTOS HCP
-			WHERE HCP.cpf_hospede = H.cpf);
+AND EXISTS (SELECT * 
+	    FROM HOSPEDE_CONSOME_PRODUTOS HCP
+	    WHERE HCP.cpf_hospede = H.cpf);
 
 /* 6 Selecionar o nome dos hóspedes que não possuem um carro da cor vermelho */
 
