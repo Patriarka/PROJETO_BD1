@@ -60,3 +60,10 @@ WHERE NOT EXISTS
 -- 9 Selecionar as camareiras de nome 'Claire Foy' 
 
 -- 10 Selecionar os alimentos e o seu respectivo fornecedor dos alimentos que fornecidos antes do dia '08/11/2020'
+
+/* 10. Selecionar o preço do quartos que possuem um nivel_cat de 3 */
+
+SELECT QPC.preco FROM QUARTO_POSSUI_CATEGORIA AS QPC
+WHERE EXISTS (SELECT * FROM CATEGORIA AS C
+              WHERE C.nivel_cat = 3
+				AND C.tipo = QPC.tipo_cat);
