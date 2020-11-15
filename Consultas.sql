@@ -36,7 +36,13 @@ WHERE F.salario > 1300
     (SELECT C.id_Cozinheiro 
     FROM COZINHEIRO AS C);
 
--- 5 Selecionar os hóspedes que tenham comprado algum dos produtos disponíveis
+/* 5. Selecionar os hóspedes que tem um cpf que termina com o digito 2 e que 
+tenham comprado algum dos produtos disponíveis */
+
+SELECT * FROM HOSPEDE H
+WHERE H.cpf LIKE '%2'
+AND EXISTS (SELECT * FROM HOSPEDE_CONSOME_PRODUTOS HCP
+			WHERE HCP.cpf_hospede = H.cpf);
 
 -- 6 Selecionar os hóspedes que possuem um carro da cor verde
 
