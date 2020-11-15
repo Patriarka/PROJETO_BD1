@@ -44,7 +44,13 @@ WHERE H.cpf LIKE '%2'
 AND EXISTS (SELECT * FROM HOSPEDE_CONSOME_PRODUTOS HCP
 			WHERE HCP.cpf_hospede = H.cpf);
 
--- 6 Selecionar os hóspedes que possuem um carro da cor verde
+/* 6 Selecionar o nome dos hóspedes que não possuem um carro da cor vermelho */
+
+SELECT H.nome FROM HOSPEDE AS H
+WHERE NOT EXISTS 
+	(SELECT * FROM CARRO C
+	 WHERE C.cor = 'vermelho'
+		AND H.cpf = C.cpf_hosp);
 
 -- 7 Selecionar os quartos que são limpos por mais do que uma camareira
 
