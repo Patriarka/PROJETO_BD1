@@ -1,4 +1,4 @@
-/* 1 Selecionar os nomes dos contatos que seu nome comece com a letra 'O' e que seu
+/* 1 Selecionar os nomes dos contatos que o nome comece com a letra 'O' e que seu
 fornecedor seja da cidade de 'São Paulo' */
 
 SELECT C.nome 
