@@ -53,7 +53,14 @@ WHERE NOT EXISTS
 	 WHERE C.cor = 'vermelho'
 		AND H.cpf = C.cpf_hosp);
 
--- 7 Selecionar os quartos que são limpos por mais do que uma camareira
+/* 7 Selecionar o num dos quartos que são limpos por apenas uma camareira */
+
+SELECT Q.num_quarto FROM QUARTO Q
+WHERE EXISTS
+	(SELECT * FROM CAMAREIRA_LIMPA_QUARTO AS CLQ 
+		WHERE Q.id = CLQ.id_quarto
+		GROUP BY CLQ.id_quarto
+		HAVING COUNT(CLQ.id_quarto) = 1);
 
 -- 8 Selecionar apenas o carros do tipo 'gol' da cor 'prata'
 
