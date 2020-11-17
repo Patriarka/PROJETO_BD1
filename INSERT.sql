@@ -288,19 +288,19 @@ INSERT INTO CATEGORIA(tipo, descricao, nivel_cat) VALUES
 ('Master Luxo duplo casal', 'quarto grande e luxuoso para casal no mesmo quarto, com serviços da melhor qualidade', 4), 
 ('Master Luxo duplo quarto', 'ambiente com dois quartos luxuosos com camas de casal e com serviços da melhor qualidade', 4);
 
-INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente) VALUES 
-('2020/11/06', 0, 99.99, 22), 
-('2020/11/06', 0, 49.99, 23), 
-('2020/11/06', 0, 49.99, 24), 
-('2020/11/07', 0, 279.99, 25), 
-('2020/11/09', 0, 199.99, 26), 
-('2020/11/07', 1, 149.97, 27), 
-('2020/11/09', 0, 499.99, 27), 
-('2020/11/07', 0, 279.99, 28), 
-('2020/11/08', 1, 109.99, 28), 
-('2020/11/09', 1, 199.99, 30), 
-('2020/11/09', 0, 49.99, 31), 
-('2020/11/09', 1, 99.99, 32);
+INSERT INTO HOSPEDAGEM(data, status, valor, id_atendente, cpf_h) VALUES 
+('2020/11/06', 0, 99.99, 22, '39737253060'), 
+('2020/11/06', 0, 49.99, 23, '57628986285'), 
+('2020/11/06', 0, 49.99, 24, '86279139352'), 
+('2020/11/07', 0, 279.99, 25, '93137333580'), 
+('2020/11/09', 0, 199.99, 26, '53356494708'), 
+('2020/11/07', 1, 149.97, 27, '73513220073'), 
+('2020/11/09', 0, 499.99, 27, '34190994014'), 
+('2020/11/07', 0, 279.99, 28, '21007273038'), 
+('2020/11/08', 1, 109.99, 28, '82250927162'), 
+('2020/11/09', 1, 199.99, 30, '92272268692'), 
+('2020/11/09', 0, 49.99, 31, '82250927162'), 
+('2020/11/09', 1, 99.99, 32, '21007273038');
 
 INSERT INTO QUARTO_POSSUI_CATEGORIA(tipo_cat, preco, id_quarto, id_hospedagem) VALUES
 ('standard solteiro', 49.99, 1, 1),
