@@ -173,6 +173,8 @@ CREATE TABLE HOSPEDAGEM(
     status BOOLEAN,
     valor DECIMAL(10,2),
     id_atendente INTEGER NOT NULL,
+    cpf_h CHAR(11),
+    FOREIGN KEY(cpf_h) REFERENCES HOSPEDE(cpf),
     FOREIGN KEY(id_atendente) REFERENCES ATENDENTE(id_atendente)
 );
 
