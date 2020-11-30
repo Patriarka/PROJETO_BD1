@@ -60,16 +60,12 @@ HAVING COUNT(CLQ.id_quarto) > 1;
 
 /* 8. Selecionar o id dos manobristas que possuem uma CNH de nivel B e que manobraram mais do que dois carros */
 
-SELECT M.id_manobrista
-FROM MANOBRISTA AS M
-WHERE M.id_manobrista IN 
-	( SELECT C.id_manobrista FROM CNH AS C
-	 WHERE C.nivel_cnh = 'B'
-     AND M.id_manobrista = C.id_manobrista
-     AND EXISTS ( SELECT * FROM MANOBRA_CARRO MC
-				  WHERE M.id_manobrista = MC.id_manobrista
-				  GROUP BY MC.id_manobrista
-					HAVING COUNT(MC.id_manobrista) > 1) );
+SELECT C.id_manobrista 
+FROM CNH AS C, MANOBRA_CARRO AS MC
+WHERE C.nivel_cnh = 'B'
+AND C.id_manobrista = MC.id_manobrista
+GROUP BY MC.id_manobrista
+HAVING COUNT(MC.id_manobrista) > 2;
 
 /* 9. Selecionar o nome e o cpf dos hóspedes que fizeram mais do que uma hospedagem com um valor maior do que o valor de 200.00 */
 
