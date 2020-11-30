@@ -58,7 +58,7 @@ WHERE Q.id = CLQ.id_quarto
 GROUP BY CLQ.id_quarto
 HAVING COUNT(CLQ.id_quarto) > 1; 
 
-/* 8. Selecionar o id dos manobristas que possuem uma CNH de nivel B e que manobram mais do que um carro */
+/* 8. Selecionar o id dos manobristas que possuem uma CNH de nivel B e que manobraram mais do que dois carros */
 
 SELECT M.id_manobrista
 FROM MANOBRISTA AS M
