@@ -101,3 +101,13 @@ WHERE H.cpf IN
 WHERE MC.placa_carro = C.placa 
 	AND C.placa LIKE 'K%'
 	AND MC.id_manobrista = 4);
+	
+/* 13. Selecionar o maior valor de id de todos os auxiliares de cozinha */
+
+SELECT AC.id_aux_cozinha 
+FROM AUXILIAR_DE_COZINHA AS AC
+WHERE AC.id_aux_cozinha = 
+(SELECT MAX(AC2.id_aux_cozinha)
+FROM AUXILIAR_DE_COZINHA AS AC2, FUNCIONARIO AS F
+WHERE AC2.id_aux_cozinha = F.id_func);
+    
