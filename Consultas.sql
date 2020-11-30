@@ -82,3 +82,12 @@ SELECT QPC.preco FROM QUARTO_POSSUI_CATEGORIA AS QPC
 WHERE EXISTS (SELECT * FROM CATEGORIA AS C
               WHERE C.nivel_cat = 3
 	      AND C.tipo = QPC.tipo_cat);
+	      
+/* 11. Selecionar o id da hospededagem que foi atendida pela atendente de nome Luana */
+
+SELECT HOSP.id_hosp 
+FROM HOSPEDAGEM AS HOSP
+WHERE HOSP.id_atendente IN 
+	(SELECT A.id_atendente FROM ATENDENTE AS A, FUNCIONARIO AS F
+	 WHERE F.id_func = A.id_atendente
+		AND F.nome LIKE 'LUANA%');
