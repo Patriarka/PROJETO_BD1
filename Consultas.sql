@@ -48,7 +48,7 @@ SELECT H.nome FROM HOSPEDE AS H
 WHERE NOT EXISTS 
 	(SELECT * FROM CARRO C
 	 WHERE C.cor = 'vermelho'
-		AND H.cpf = C.cpf_hosp);
+	 AND H.cpf = C.cpf_hosp);
 
 /* 7 Selecionar o número dos quartos que são limpos por mais do que uma camareira */
 
@@ -85,4 +85,4 @@ HAVING COUNT(HOSP.cpf_h) > 1;
 SELECT QPC.preco FROM QUARTO_POSSUI_CATEGORIA AS QPC
 WHERE EXISTS (SELECT * FROM CATEGORIA AS C
               WHERE C.nivel_cat = 3
-				AND C.tipo = QPC.tipo_cat);
+	      AND C.tipo = QPC.tipo_cat);
