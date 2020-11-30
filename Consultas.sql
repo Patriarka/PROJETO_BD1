@@ -91,3 +91,13 @@ WHERE HOSP.id_atendente IN
 	(SELECT A.id_atendente FROM ATENDENTE AS A, FUNCIONARIO AS F
 	 WHERE F.id_func = A.id_atendente
 		AND F.nome LIKE 'LUANA%');
+		
+/* 12. Selecionar os hóspedes que possuam um carro que a sua placa comece pela letra K e que foi manobrado
+pelo manobrista de id 4 */
+
+SELECT * FROM HOSPEDE AS H
+WHERE H.cpf IN 
+(SELECT C.cpf_hosp FROM CARRO AS C, MANOBRA_CARRO AS MC
+WHERE MC.placa_carro = C.placa 
+	AND C.placa LIKE 'K%'
+	AND MC.id_manobrista = 4);
