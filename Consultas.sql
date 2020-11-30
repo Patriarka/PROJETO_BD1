@@ -54,12 +54,11 @@ WHERE NOT EXISTS
 
 /* 7 Selecionar o número dos quartos que são limpos por mais do que uma camareira */
 
-SELECT Q.num_quarto FROM QUARTO Q
-WHERE EXISTS
-	(SELECT * FROM CAMAREIRA_LIMPA_QUARTO AS CLQ 
-		WHERE Q.id = CLQ.id_quarto
-		GROUP BY CLQ.id_quarto
-		HAVING COUNT(CLQ.id_quarto) = 1);
+SELECT Q.num_quarto 
+FROM QUARTO AS Q, CAMAREIRA_LIMPA_QUARTO AS CLQ 
+WHERE Q.id = CLQ.id_quarto
+GROUP BY CLQ.id_quarto
+HAVING COUNT(CLQ.id_quarto) > 1; 
 
 /* 8. Selecionar o id dos manobristas que possuem uma CNH de nivel B e que manobram mais do que um carro */
 
