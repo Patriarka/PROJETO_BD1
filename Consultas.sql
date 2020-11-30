@@ -73,12 +73,12 @@ WHERE M.id_manobrista IN
 
 /* 9. Selecionar o nome e o cpf dos hóspedes que fizeram mais do que uma hospedagem com um valor maior do que o valor de 200.00 */
 
-SELECT H.nome, H.cpf FROM HOSPEDE AS H
-WHERE EXISTS (SELECT * FROM HOSPEDAGEM AS HOSP
-			  WHERE HOSP.valor > 200.00
-				AND H.cpf = HOSP.cpf_h
-			  GROUP BY HOSP.cpf_h
-              HAVING COUNT(HOSP.cpf_h) > 1); 
+SELECT H.nome, H.cpf 
+FROM HOSPEDE AS H, HOSPEDAGEM AS HOSP
+WHERE H.cpf = HOSP.cpf_h
+AND HOSP.valor > 200.00
+GROUP BY HOSP.cpf_h
+HAVING COUNT(HOSP.cpf_h) > 1;
 
 /* 10. Selecionar o preço do quartos que possuem um nivel_cat de 3 */
 
